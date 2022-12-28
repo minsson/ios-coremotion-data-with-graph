@@ -23,7 +23,6 @@ final class DefaultListViewModel: ListViewModel {
     
     init() {
         coreDataManager.fileManager = fileHandlerManager
-        fetchData()
     }
     
     func fetchData() {

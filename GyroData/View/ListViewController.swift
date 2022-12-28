@@ -18,6 +18,11 @@ final class ListViewController: UIViewController {
         setupBinding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        listViewModel.fetchData()
+    }
+    
     private func setupInitialView() {
         self.view = listView
         listView.backgroundColor = .systemBackground
