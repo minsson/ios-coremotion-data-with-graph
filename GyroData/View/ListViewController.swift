@@ -10,23 +10,11 @@ import UIKit
 final class ListViewController: UIViewController {
     private let listViewModel = DefaultListViewModel()
     private let listView = ListView()
-    private var list = [CellData(date: Date().translateToString(), measuredTime: "43.4", sensor: "Accelerometer")]
-    
-    private let rightButton: UIBarButtonItem = {
-         let button = UIBarButtonItem(
-            title: "측정",
-            style: .plain,
-            target: ListViewController.self,
-            action: #selector(rightButtonTapped)
-         )
-         
-         return button
-     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialView()
-        setupNavigationTitle()
+        setupNavigation()
         setupBinding()
     }
     
@@ -43,12 +31,25 @@ final class ListViewController: UIViewController {
         }
     }
     
-    private func setupNavigationTitle() {
+    private func setupNavigation() {
+        let rightButton: UIBarButtonItem = {
+             let button = UIBarButtonItem(
+                title: "측정",
+                style: .plain,
+                target: self,
+                action: #selector(rightButtonTapped)
+             )
+             
+             return button
+         }()
         self.navigationItem.title = "목록"
-        self.navigationItem.rightBarButtonItem = self.rightButton
+        self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    @objc func rightButtonTapped() { }
+    @objc func rightButtonTapped() {
+        let vc = MeasureViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
