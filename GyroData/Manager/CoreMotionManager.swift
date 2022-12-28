@@ -24,7 +24,7 @@ final class CoreMotionManager: SensorDataHandleable {
     private var timer: Timer?
     private var timerNum: Double = 0.0
     private let timeSet: Double = 60.0
-    private var senser: Sensor = Sensor.gyro
+    private var senser: Sensor = Sensor.accelerometer
     private var sensorData: [SensorData] = []
     private var axisX: [Double] = []
     private var axisY: [Double] = []

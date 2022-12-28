@@ -11,7 +11,7 @@ final class MeasureViewController: UIViewController {
     private let measureViewModel = MeasureViewModel()
     private let measureView = MeasureView()
     
-    private var sensor: Sensor = Sensor.gyro
+    private var sensor: Sensor = Sensor.accelerometer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +24,9 @@ final class MeasureViewController: UIViewController {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            sensor = Sensor.gyro
-        case 1:
             sensor = Sensor.accelerometer
+        case 1:
+            sensor = Sensor.gyro
         default:
             return
         }
