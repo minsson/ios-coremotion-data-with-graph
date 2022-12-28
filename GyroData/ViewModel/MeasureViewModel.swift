@@ -11,16 +11,9 @@ final class MeasureViewModel {
     private let coreDataManager = CoreDataManager()
     private let fileHandlerManager = FileHandleManager()
     private let coreMotionManager = CoreMotionManager()
-    
-    var models: Observable<[MeasuredData]> = Observable([])
-    
+        
     init() {
         coreDataManager.fileManager = fileHandlerManager
-        fetchData()
-    }
-    
-    func fetchData() {
-        models.value = coreDataManager.read()
     }
     
     func startCoreMotion(of SensorType: Sensor) {
@@ -32,6 +25,6 @@ final class MeasureViewModel {
     }
     
     func saveCoreMotion() {
-        models.value.append(coreMotionManager.deliverMeasureData())
+        coreDataManager.create(data: coreMotionManager.deliverMeasureData())
     }
 }
