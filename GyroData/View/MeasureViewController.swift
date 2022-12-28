@@ -8,15 +8,46 @@
 import UIKit
 
 final class MeasureViewController: UIViewController {
-    let measureView = MeasureView()
+    private let measureViewModel = MeasureViewModel()
+    private let measureView = MeasureView()
+    
+    private var sensor: Sensor = Sensor.gyro
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = measureView
         setupNavigation()
+        setupButtons()
     }
     
-    private func setupNavigation() {
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            sensor = Sensor.gyro
+        case 1:
+            sensor = Sensor.accelerometer
+        default:
+            return
+        }
+    }
+    
+    @objc func saveButtonDidTapped() {
+        measureViewModel.saveCoreMotion()
+    }
+    
+    @objc func startButtonDidTapped() {
+        measureViewModel.startCoreMotion(of: sensor)
+    }
+    
+    @objc func stopButtonDidTapped() {
+        measureViewModel.stopCoreMotion()
+    }
+}
+
+private extension MeasureViewController {
+    
+    func setupNavigation() {
         let rightButton: UIBarButtonItem = {
              let button = UIBarButtonItem(
                 title: "저장",
@@ -31,7 +62,21 @@ final class MeasureViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    @objc func saveButtonDidTapped() {
-        print("저장")
+    func setupButtons() {
+        measureView.segmentControl.addTarget(
+            self,
+            action: #selector(segmentedControlValueChanged),
+            for: .valueChanged
+        )
+        measureView.startButton.addTarget(
+            self,
+            action: #selector(startButtonDidTapped),
+            for: .touchUpInside
+        )
+        measureView.stopButton.addTarget(
+            self,
+            action: #selector(stopButtonDidTapped),
+            for: .touchUpInside
+        )
     }
 }

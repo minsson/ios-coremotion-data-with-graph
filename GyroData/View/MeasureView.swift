@@ -15,13 +15,14 @@ final class MeasureView: UIView {
         stack.axis = .vertical
         stack.spacing = 20
         stack.isLayoutMarginsRelativeArrangement = true
-        stack.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 200, right: 20)
+        stack.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 100, right: 20)
         return stack
     }()
     
     let segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl(items: ["Acc", "Gyro"])
         segment.translatesAutoresizingMaskIntoConstraints = false
+        segment.selectedSegmentIndex = 0
         return segment
     }()
     
@@ -34,7 +35,7 @@ final class MeasureView: UIView {
         return view
     }()
     
-    let measureButton: UIButton = {
+    let startButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("측정", for: .normal)
@@ -67,7 +68,7 @@ private extension MeasureView {
         addSubview(stackView)
         stackView.addArrangedSubview(segmentControl)
         stackView.addArrangedSubview(chartView)
-        stackView.addArrangedSubview(measureButton)
+        stackView.addArrangedSubview(startButton)
         stackView.addArrangedSubview(stopButton)
     }
     
