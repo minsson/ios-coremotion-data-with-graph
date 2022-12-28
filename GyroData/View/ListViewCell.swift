@@ -65,10 +65,10 @@ final class ListViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupData(with model: CellData) {
-        dateLabel.text = model.date
-        sensorLabel.text = model.sensor
-        valueLabel.text = model.measuredTime
+    func setupData(with model: MeasuredData) {
+        dateLabel.text = model.date.translateToString()
+        sensorLabel.text = model.sensor.rawValue
+        valueLabel.text = model.measuredTime.description
     }
 }
 
