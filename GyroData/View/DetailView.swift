@@ -20,6 +20,7 @@ final class DetailView: UIView {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
     
@@ -34,8 +35,6 @@ final class DetailView: UIView {
         let view = GraphContainerView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
-        view.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 350).isActive = true
         return view
     }()
     
@@ -53,6 +52,7 @@ final class DetailView: UIView {
         button.widthAnchor.constraint(equalToConstant: 60).isActive = true
         return button
     }()
+    
     let timerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -87,7 +87,7 @@ final class DetailView: UIView {
         addSubview(labelStackView)
         labelStackView.addArrangedSubview(dateLabel)
         labelStackView.addArrangedSubview(typeLabel)
-        addSubview(graphContainerView)
+        labelStackView.addArrangedSubview(graphContainerView)
         addSubview(playButton)
         addSubview(timerLabel)
     }
@@ -95,12 +95,14 @@ final class DetailView: UIView {
     func setLayer() {
         NSLayoutConstraint.activate([
             labelStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            labelStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80),
+            labelStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -300),
             labelStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30),
             labelStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30),
             
-            graphContainerView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 40),
-            graphContainerView.leadingAnchor.constraint(equalTo: labelStackView.leadingAnchor),
+            typeLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+            
+            graphContainerView.heightAnchor.constraint(equalTo: graphContainerView.widthAnchor),
+            graphContainerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             
             playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             playButton.topAnchor.constraint(equalTo: graphContainerView.bottomAnchor, constant: 40),
@@ -108,5 +110,6 @@ final class DetailView: UIView {
             timerLabel.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
             timerLabel.trailingAnchor.constraint(equalTo: graphContainerView.trailingAnchor)
         ])
+        
     }
 }

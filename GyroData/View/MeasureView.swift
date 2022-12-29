@@ -39,6 +39,7 @@ final class MeasureView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("측정", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.contentHorizontalAlignment = .left
         return button
     }()
     
@@ -47,6 +48,7 @@ final class MeasureView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("정지", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.contentHorizontalAlignment = .left
         return button
     }()
     
