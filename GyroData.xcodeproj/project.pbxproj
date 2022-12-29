@@ -34,9 +34,10 @@
 		AFAF9A04295D5148006DCC6A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF9A03295D5148006DCC6A /* DetailViewModel.swift */; };
 		AFAF9A06295D52D3006DCC6A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF9A05295D52D3006DCC6A /* DetailView.swift */; };
 		FDA47545295AC62D006D57B7 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47544295AC62D006D57B7 /* Sensor.swift */; };
-		FDA47548295AC793006D57B7 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47547295AC793006D57B7 /* ChartView.swift */; };
+		FDA47548295AC793006D57B7 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47547295AC793006D57B7 /* GraphView.swift */; };
 		FDA4754E295AC838006D57B7 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4754D295AC838006D57B7 /* CoreMotionManager.swift */; };
 		FDA47550295AC953006D57B7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4754F295AC953006D57B7 /* CoreDataManager.swift */; };
+		FDA4759A295C95D0006D57B7 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47599295C95D0006D57B7 /* UIBezierPath+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +79,10 @@
 		AFAF9A03295D5148006DCC6A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		AFAF9A05295D52D3006DCC6A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FDA47544295AC62D006D57B7 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
-		FDA47547295AC793006D57B7 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		FDA47547295AC793006D57B7 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		FDA4754D295AC838006D57B7 /* CoreMotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
 		FDA4754F295AC953006D57B7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FDA47599295C95D0006D57B7 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +205,8 @@
 		FDA47546295AC76E006D57B7 /* ChartView */ = {
 			isa = PBXGroup;
 			children = (
-				FDA47547295AC793006D57B7 /* ChartView.swift */,
+				FDA47547295AC793006D57B7 /* GraphView.swift */,
+				FDA47599295C95D0006D57B7 /* UIBezierPath+Extension.swift */,
 			);
 			path = ChartView;
 			sourceTree = "<group>";
