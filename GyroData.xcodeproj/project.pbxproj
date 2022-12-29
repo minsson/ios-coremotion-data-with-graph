@@ -30,6 +30,9 @@
 		AFABE5E4295975A600F2F6E3 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABE5E3295975A600F2F6E3 /* CellData.swift */; };
 		AFAF99FA295C683E006DCC6A /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF99F9295C683E006DCC6A /* MeasureViewController.swift */; };
 		AFAF99FC295C68B4006DCC6A /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF99FB295C68B4006DCC6A /* MeasureView.swift */; };
+		AFAF9A00295D50E3006DCC6A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF99FF295D50E3006DCC6A /* DetailViewController.swift */; };
+		AFAF9A04295D5148006DCC6A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF9A03295D5148006DCC6A /* DetailViewModel.swift */; };
+		AFAF9A06295D52D3006DCC6A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF9A05295D52D3006DCC6A /* DetailView.swift */; };
 		FDA47545295AC62D006D57B7 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47544295AC62D006D57B7 /* Sensor.swift */; };
 		FDA47548295AC793006D57B7 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47547295AC793006D57B7 /* ChartView.swift */; };
 		FDA4754E295AC838006D57B7 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4754D295AC838006D57B7 /* CoreMotionManager.swift */; };
@@ -71,6 +74,9 @@
 		AFABE5E3295975A600F2F6E3 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		AFAF99F9295C683E006DCC6A /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		AFAF99FB295C68B4006DCC6A /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
+		AFAF99FF295D50E3006DCC6A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AFAF9A03295D5148006DCC6A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		AFAF9A05295D52D3006DCC6A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FDA47544295AC62D006D57B7 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		FDA47547295AC793006D57B7 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		FDA4754D295AC838006D57B7 /* CoreMotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 				A3DED02029596A83007EE19D /* ListViewCell.swift */,
 				AFAF99F9295C683E006DCC6A /* MeasureViewController.swift */,
 				AFAF99FB295C68B4006DCC6A /* MeasureView.swift */,
+				AFAF99FF295D50E3006DCC6A /* DetailViewController.swift */,
+				AFAF9A05295D52D3006DCC6A /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 			children = (
 				AFABE5E12959734C00F2F6E3 /* ListViewModel.swift */,
 				A30E7B5D295C8D880012B96A /* MeasureViewModel.swift */,
+				AFAF9A03295D5148006DCC6A /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,6 +326,8 @@
 				FDA47545295AC62D006D57B7 /* Sensor.swift in Sources */,
 				63F01BB528D44FC400C53A39 /* AppDelegate.swift in Sources */,
 				A30E7B5E295C8D880012B96A /* MeasureViewModel.swift in Sources */,
+				AFAF9A06295D52D3006DCC6A /* DetailView.swift in Sources */,
+				AFAF9A04295D5148006DCC6A /* DetailViewModel.swift in Sources */,
 				AFABE5E22959734C00F2F6E3 /* ListViewModel.swift in Sources */,
 				FDA4754E295AC838006D57B7 /* CoreMotionManager.swift in Sources */,
 				AF1BD840295C1EC300432F19 /* MotionData+CoreDataClass.swift in Sources */,
@@ -324,6 +335,7 @@
 				AFABE5E4295975A600F2F6E3 /* CellData.swift in Sources */,
 				63F01BB728D44FC400C53A39 /* SceneDelegate.swift in Sources */,
 				FDA47550295AC953006D57B7 /* CoreDataManager.swift in Sources */,
+				AFAF9A00295D50E3006DCC6A /* DetailViewController.swift in Sources */,
 				A3DED01F29596846007EE19D /* ListView.swift in Sources */,
 				FDA47548295AC793006D57B7 /* ChartView.swift in Sources */,
 				AF1BD841295C1EC500432F19 /* MotionData+CoreDataProperties.swift in Sources */,
