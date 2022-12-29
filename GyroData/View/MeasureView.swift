@@ -31,7 +31,7 @@ final class MeasureView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .gray
         view.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        view.widthAnchor.constraint(equalToConstant: 350).isActive = true
+//        view.widthAnchor.constraint(equalToConstant: 350).isActive = true
         return view
     }()
     
