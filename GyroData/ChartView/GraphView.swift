@@ -78,9 +78,11 @@ private extension GraphView {
             measuredData.sensorData.axisZ
         ]
         
+        var lineColors: [UIColor] = [.red, .green, .blue]
+        
         sensorData.forEach { eachAxisData in
             let path = UIBezierPath()
-            let lineColor: UIColor = Configuration.lineColors.removeFirst()
+            let lineColor: UIColor = lineColors.removeFirst()
             
             path.move(to: CGPoint(x: zeroX, y: zeroY))
             path.lineWidth = Configuration.lineWidth
