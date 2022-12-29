@@ -9,6 +9,16 @@ import UIKit
 
 final class DetailView: UIView {
     
+    let mainStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 30
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
+        return stack
+    }()
+    
     let labelStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -38,12 +48,10 @@ final class DetailView: UIView {
         return view
     }()
     
-    // play.fill, stop.fill
     let playButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
-//        button.setImage(UIImage(systemName: "stop.fill"), for: .selected) //
         button.tintColor = .black
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
@@ -84,32 +92,26 @@ final class DetailView: UIView {
     }
     
     func addSubviews() {
-        addSubview(labelStackView)
+        addSubview(mainStackView)
+        mainStackView.addArrangedSubview(labelStackView)
         labelStackView.addArrangedSubview(dateLabel)
         labelStackView.addArrangedSubview(typeLabel)
-        labelStackView.addArrangedSubview(graphContainerView)
+        mainStackView.addArrangedSubview(graphContainerView)
         addSubview(playButton)
         addSubview(timerLabel)
     }
     
     func setLayer() {
         NSLayoutConstraint.activate([
-            labelStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            labelStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -300),
-            labelStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30),
-            labelStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30),
-            
-            typeLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
-            
-            graphContainerView.heightAnchor.constraint(equalTo: graphContainerView.widthAnchor),
-            graphContainerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            mainStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            mainStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             
             playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             playButton.topAnchor.constraint(equalTo: graphContainerView.bottomAnchor, constant: 40),
-            
             timerLabel.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
             timerLabel.trailingAnchor.constraint(equalTo: graphContainerView.trailingAnchor)
         ])
-        
     }
 }
