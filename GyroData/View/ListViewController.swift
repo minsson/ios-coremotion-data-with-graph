@@ -72,5 +72,38 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // DetailViewController view타입 띄우기
+        let vc = DetailViewController(data: listViewModel.models.value[indexPath.row], type: .view)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let playAction = generatePlayAction(with: indexPath.row)
+        let deleteAction = generateDeleteAction(with: indexPath.row)
+        return UISwipeActionsConfiguration(actions: [deleteAction, playAction])
+    }
+    
+    func generatePlayAction(with indexPath: Int) -> UIContextualAction {
+        let playAction = UIContextualAction(style: .normal, title: "Play") { [weak self] _, _, _ in
+            // DetailViewController play타입 띄우기
+            guard let self = self else { return }
+            print("play")
+            let vc = DetailViewController(data: self.listViewModel.models.value[indexPath], type: .play)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        playAction.backgroundColor = .init(red: 19/255, green: 144/225, blue: 14/225, alpha: 1)
+        return playAction
+    }
+    
+    func generateDeleteAction(with indexPath: Int) -> UIContextualAction {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self]_, _, _ in
+            // 셀에 해당하는 데이터 지우기
+            guard let self = self else { return }
+            let data = self.listViewModel.models.value[indexPath]
+            self.listViewModel.deleteData(data: data)
+            print("delete")
+        }
+        return deleteAction
+    }
 }

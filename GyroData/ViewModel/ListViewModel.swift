@@ -28,4 +28,9 @@ final class DefaultListViewModel: ListViewModel {
     func fetchData() {
         models.value = coreDataManager.read()
     }
+    
+    func deleteData(data: MeasuredData) {
+        coreDataManager.delete(data: data)
+        fetchData()
+    }
 }
