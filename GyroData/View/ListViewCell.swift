@@ -34,6 +34,7 @@ final class ListViewCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -42,6 +43,7 @@ final class ListViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -51,6 +53,7 @@ final class ListViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
