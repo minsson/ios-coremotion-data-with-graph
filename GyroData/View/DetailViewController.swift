@@ -15,10 +15,14 @@ enum DetailType: String {
 final class DetailViewController: UIViewController {
     private var currenType: DetailType?
     private let detailView = DetailView()
+    private var myData: MeasuredData?
+    private var timer: Timer?
+    private var timerNum: Double = 0.0
     
     init(data: MeasuredData,type: DetailType) {
         super.init(nibName: nil, bundle: nil)
         detailView.setupMode(data: data, type: type)
+        myData = data
     }
     
     required init?(coder: NSCoder) {
@@ -32,11 +36,32 @@ final class DetailViewController: UIViewController {
         setupButton()
     }
     
-    func setupNavigationBar() {
+    @objc func playButtonDidTapped() {
+        if detailView.playButton.image(for: .normal) == UIImage(systemName: "play.fill") {
+            detailView.playButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
+            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+                self.timerNum += 0.1
+                
+                self.detailView.timerLabel.text = self.timerNum.timeDecimal().description
+                
+                if self.timerNum.timeDecimal() == self.myData?.measuredTime {
+                    self.stopTimer()
+                    self.timerNum = 0
+                }
+            })
+        } else {
+            stopTimer()
+        }
+    }
+}
+
+private extension DetailViewController {
+    
+    private func setupNavigationBar() {
         navigationItem.title = "다시보기"
     }
     
-    func setupButton() {
+    private func setupButton() {
         detailView.playButton.addTarget(
             self,
             action: #selector(playButtonDidTapped),
@@ -44,13 +69,8 @@ final class DetailViewController: UIViewController {
         )
     }
     
-    @objc func playButtonDidTapped() {
-        if detailView.playButton.image(for: .normal) == UIImage(systemName: "play.fill") {
-            detailView.playButton.setImage(UIImage(systemName: "stop.fill"), for: .normal)
-            // play 중인 상황
-        } else {
-            detailView.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            // stop 상황
-        }
+    private func stopTimer() {
+        detailView.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        timer?.invalidate()
     }
 }
