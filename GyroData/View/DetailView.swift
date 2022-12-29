@@ -30,10 +30,10 @@ final class DetailView: UIView {
         return label
     }()
     
-    let chartView: UIView = {
-        let view = UIView()
+    let graphContainerView: GraphContainerView = {
+        let view = GraphContainerView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .gray
+        view.backgroundColor = .clear
         view.heightAnchor.constraint(equalToConstant: 350).isActive = true
         view.widthAnchor.constraint(equalToConstant: 350).isActive = true
         return view
@@ -73,6 +73,8 @@ final class DetailView: UIView {
     }
     
     func setupMode(data: MeasuredData, type: DetailType) {
+        graphContainerView.graphView.retrieveData(data: data)
+        
         dateLabel.text = data.date.translateToString()
         typeLabel.text = type.rawValue
         if type == .view {
@@ -85,7 +87,7 @@ final class DetailView: UIView {
         addSubview(labelStackView)
         labelStackView.addArrangedSubview(dateLabel)
         labelStackView.addArrangedSubview(typeLabel)
-        addSubview(chartView)
+        addSubview(graphContainerView)
         addSubview(playButton)
         addSubview(timerLabel)
     }
@@ -97,14 +99,14 @@ final class DetailView: UIView {
             labelStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30),
             labelStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30),
             
-            chartView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 40),
-            chartView.leadingAnchor.constraint(equalTo: labelStackView.leadingAnchor),
+            graphContainerView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 40),
+            graphContainerView.leadingAnchor.constraint(equalTo: labelStackView.leadingAnchor),
             
             playButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            playButton.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 40),
+            playButton.topAnchor.constraint(equalTo: graphContainerView.bottomAnchor, constant: 40),
             
             timerLabel.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
-            timerLabel.trailingAnchor.constraint(equalTo: chartView.trailingAnchor)
+            timerLabel.trailingAnchor.constraint(equalTo: graphContainerView.trailingAnchor)
         ])
     }
 }

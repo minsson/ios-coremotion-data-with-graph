@@ -37,7 +37,7 @@
 		FDA47548295AC793006D57B7 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47547295AC793006D57B7 /* GraphView.swift */; };
 		FDA4754E295AC838006D57B7 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4754D295AC838006D57B7 /* CoreMotionManager.swift */; };
 		FDA47550295AC953006D57B7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4754F295AC953006D57B7 /* CoreDataManager.swift */; };
-		FDA4759A295C95D0006D57B7 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47599295C95D0006D57B7 /* UIBezierPath+Extension.swift */; };
+		FDA475A3295D61DC006D57B7 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA47599295C95D0006D57B7 /* UIBezierPath+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30E7B5C295C61A90012B96A /* Observable.swift in Sources */,
+				FDA475A3295D61DC006D57B7 /* UIBezierPath+Extension.swift in Sources */,
 				AFAF99FC295C68B4006DCC6A /* MeasureView.swift in Sources */,
 				63F01BB928D44FC400C53A39 /* ListViewController.swift in Sources */,
 				AF1BD844295C3E2A00432F19 /* FileHandleManager.swift in Sources */,
@@ -340,7 +341,7 @@
 				FDA47550295AC953006D57B7 /* CoreDataManager.swift in Sources */,
 				AFAF9A00295D50E3006DCC6A /* DetailViewController.swift in Sources */,
 				A3DED01F29596846007EE19D /* ListView.swift in Sources */,
-				FDA47548295AC793006D57B7 /* ChartView.swift in Sources */,
+				FDA47548295AC793006D57B7 /* GraphView.swift in Sources */,
 				AF1BD841295C1EC500432F19 /* MotionData+CoreDataProperties.swift in Sources */,
 				A3DED02129596A83007EE19D /* ListViewCell.swift in Sources */,
 				A3DED01B295965CE007EE19D /* MeasuredData.swift in Sources */,
@@ -502,7 +503,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B99296K282;
+				DEVELOPMENT_TEAM = 4K2FDLWHBL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GyroData/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -514,7 +515,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.GyroDat;
+				PRODUCT_BUNDLE_IDENTIFIER = io.minsson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -529,7 +530,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B99296K282;
+				DEVELOPMENT_TEAM = 4K2FDLWHBL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GyroData/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -541,7 +542,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.GyroDat;
+				PRODUCT_BUNDLE_IDENTIFIER = io.minsson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
